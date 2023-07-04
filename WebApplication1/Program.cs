@@ -1,4 +1,5 @@
 using WebApplication1.Extension;
+using WebApplication1.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.MapWhen(context=>context.Request.Path.StartsWithSegments("/hakuna"),builder=>builder.UseMiddleware<MapWhenHakuna>());
+    app.MapWhen(context=>context.Request.Path.StartsWithSegments("/hakuna"),builder=>builder.builder());
 }
 
 app.UseHttpsRedirection();
